@@ -49,6 +49,9 @@ console.log(listaDeFrutas);
 listaDeFrutas.pop();
 console.log(listaDeFrutas);
 
+const novaLista = listaDeFrutas.map(fruta => fruta.toUpperCase())
+console.table(novaLista);
+
 /* JSON */
 
 const users = [
@@ -114,6 +117,8 @@ console.log(produto1.getInfos());
 let produto2 = new Produto('Tênis', '250.00');
 console.log(produto2.getInfos());
 
+// Extends
+
 class ProdutoComTamanho extends Produto {
     constructor(nome, preco, tamanho) {
         super(nome, preco);
@@ -127,3 +132,33 @@ class ProdutoComTamanho extends Produto {
 
 let produtoComTamanho = new ProdutoComTamanho('Jaqueta', '78.90', 'M');
 console.log(produtoComTamanho.getTamanho());
+
+/* DOM */
+
+const paragrafos = document.querySelectorAll('.paragrafo');
+console.log(paragrafos);
+
+const textos = Array.from(paragrafos).map(p => p.innerText);
+console.table(textos)
+
+const titulos = document.querySelectorAll('.titulo');
+// Obs: console.table mostra a lista de todos os atributos dos elementos da node list
+console.table(titulos);
+
+// EventListener
+const btn = document.querySelector('.btn');
+btn.addEventListener('click', event => {
+    document.querySelector('#titulo-1').classList.toggle('active')
+    console.log(event.target);
+});
+
+// Atributos do elemento btn
+console.log(btn.classList)
+console.log(btn.id)
+console.log(btn.value)
+console.log(btn.innerHTML)
+
+/* LOCALSTORAGE */
+
+localStorage.setItem('conteudo', paragrafos[0].innerText);
+// localStorage.deleteItem('conteudo');
