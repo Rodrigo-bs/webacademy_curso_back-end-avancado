@@ -86,3 +86,44 @@ console.table(obj);
 
 const listaJson = JSON.stringify(obj);
 console.log(listaJson);
+
+/* Classes */
+
+class Produto {
+    constructor(nome, preco) {
+        this.nome = nome;
+        this.preco = preco;
+    }
+
+    getNome() {
+        return this.nome;
+    }
+
+    getPreco() {
+        return this.preco;
+    }
+
+    getInfos() {
+        return `O valor do(a) ${this.nome} é ${this.preco}`;
+    }
+}
+
+let produto1 = new Produto('Camisa', '19.10');
+console.log(produto1.getInfos());
+
+let produto2 = new Produto('Tênis', '250.00');
+console.log(produto2.getInfos());
+
+class ProdutoComTamanho extends Produto {
+    constructor(nome, preco, tamanho) {
+        super(nome, preco);
+        this.tamanho = tamanho;
+    }
+
+    getTamanho() {
+        return `O produto ${this.nome} com o tamanho ${this.tamanho} custa R$ ${this.preco}`;
+    }
+}
+
+let produtoComTamanho = new ProdutoComTamanho('Jaqueta', '78.90', 'M');
+console.log(produtoComTamanho.getTamanho());
